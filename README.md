@@ -1,62 +1,22 @@
-# FDFullscreenPopGesture
-An UINavigationController's category to enable fullscreen pop gesture in an iOS7+ system style with AOP.
-
-# Overview
+# HUFullscreenPopGesture
+iOS8.0+
+# 效果：
 
 ![snapshot](https://raw.githubusercontent.com/forkingdog/FDFullscreenPopGesture/master/Snapshots/snapshot0.gif)
 
-这个扩展来自 @J_雨 同学的这个很天才的思路，他的文章地址：[http://www.jianshu.com/p/d39f7d22db6c](http://www.jianshu.com/p/d39f7d22db6c)
 
-# Usage
+# 使用方法
 
-**AOP**, just add 2 files and **no need** for any setups, all navigation controllers will be able to use fullscreen pop gesture automatically.  
+###1.只需添加2的文件，不需要任何设置，所有导航控制器将能够使用流行的手势自动全屏。
 
-To disable this pop gesture of a navigation controller:  
 
-``` objc
-navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
-```
+###2.要禁用导航控制器的这个弹出姿态：
 
-To disable this pop gesture of a view controller:  
 
-``` objc
-viewController.fd_interactivePopDisabled = YES;
-```
+    navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
 
-Require at least iOS **7.0**.
+###3.要禁用视图控制器的这个弹出姿态：
 
-# View Controller Based Navigation Bar Appearance
+    viewController.fd_interactivePopDisabled = YES;
 
-It handles navigation bar transition properly when using fullscreen gesture to push or pop a view controller:  
 
-- with bar -> without bar
-- without bar -> with bar
-- without bar -> without bar
-
-![snapshot with bar states](https://raw.githubusercontent.com/forkingdog/FDFullscreenPopGesture/master/Snapshots/snapshot1.gif)
-
-This opmiziation is enabled by default, from now on you don't need to call **UINavigationController**'s `-setNavigationBarHidden:animated:` method, instead, use view controller's specific API to hide its bar:  
-
-``` objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.fd_prefersNavigationBarHidden = NO;
-}
-```
-
-And this property is **NO** by default.
-
-# Installation
-
-Use cocoapods  
-
-``` ruby
-pod 'FDFullscreenPopGesture', '1.1'
-```
-# Release Notes
-
-**1.1** - View controller based navigation bar appearance and transition.  
-**1.0** - Fullscreen pop gesture.  
-
-# License  
-MIT
